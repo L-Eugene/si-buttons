@@ -1,5 +1,5 @@
 class Player:
-    def __init__(self, name, color, ui_square):
+    def __init__(self, name, ui_square):
         """
         Initializes a Player instance.
 
@@ -8,7 +8,6 @@ class Player:
         :param ui_square: The UI square (Canvas) representing the player in the GameUI.
         """
         self.name = name
-        self.color = color
         self.ui_square = ui_square
         self.device = None
         self._status = None
@@ -33,7 +32,7 @@ class Player:
         elif value == "answer":
             self.ui_square.config(highlightbackground="green")
         else:
-            self.ui_square.config(highlightbackground=self.color)
+            self.ui_square.config(highlightbackground=self.ui_square["bg"])
 
     def assign_device(self, device):
         """

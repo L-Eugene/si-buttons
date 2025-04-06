@@ -13,12 +13,11 @@ class GameUI:
         self.root.title("Mouse Clicker Game")
 
         self.num_players = num_players
-        self.colors = colors
 
         # Create player squares
         self.player_squares = []
-        for i, color in enumerate(self.colors):
-            square = tk.Canvas(root, width=100, height=100, bg=color, highlightthickness=4)
+        for i in range(num_players):
+            square = tk.Canvas(root, width=100, height=100, bg=colors[i], highlightthickness=4)
             square.grid(row=0, column=i, padx=5, pady=5)
             self.player_squares.append(square)
 

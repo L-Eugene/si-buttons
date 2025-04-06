@@ -8,10 +8,10 @@ from evdev import ecodes
 
 # Initialize components
 root = tk.Tk()
-game_ui = GameUI(root)
+game_ui = GameUI(root, num_players=3)
 device_manager = DeviceManager()
-players = [Player(f"игрок {i+1}", color, game_ui.player_squares[i]) for i, color in enumerate(game_ui.colors)]
-game_master = Player("Ведущий", "gray", None)
+players = [Player(f"игрок {i+1}", game_ui.player_squares[i]) for i in range(len(game_ui.player_squares))]
+game_master = Player("Ведущий", None)
 game_controller = GameController(game_ui, device_manager, players, game_master)
 
 # Register commands
